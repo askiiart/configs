@@ -43,4 +43,10 @@ echo This is the SSH public key, copy it and put it in Gitea/GitHub/whatever
 echo Gitea URL: https://git.askiiart.net/user/settings/keys
 echo GitHub URL: https://github.com/settings/ssh/new
 
+echo Fixing permissions, removing temp files...
+sudo chown -R $(whoami) /home/$(whoami)/.gnupg
+sudo chgrp -R $(whoami) /home/$(whoami)/.gnupg
+sudo chmod -R 700 /home/$(whoami)/.gnupg
+rm dotnet-install.sh
+
 read -p "Done. Now verify your SSH and GPG keys in Git*" < /dev/tty
