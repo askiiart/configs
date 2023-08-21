@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Modify constants as needed
-GITEA_URL = "https://git.askiiart.net"
-REAL_NAME = "askiiart"
-EMAIL = "dev@askiiart.net"
+GITEA_URL="https://git.askiiart.net"
+REAL_NAME="askiiart"
+EMAIL="dev@askiiart.net"
 
 # Note: This waits until enter is pressed
 # read -p "Press Enter to continue" < /dev/tty
@@ -46,7 +46,7 @@ echo This is the exported key, copy it and put it in GitHub/Gitea/whatever
 echo Gitea URL: ${GITEA_URL}/user/settings/keys
 echo GitHub URL: https://github.com/settings/gpg/new
 read -p "Press enter when you're done" < /dev/tty
-exit
+
 #############
 # SSH stuff #
 #############
