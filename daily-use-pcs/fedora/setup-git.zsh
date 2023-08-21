@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 # Modify constants as needed
 GITEA_URL = "https://git.askiiart.net"
@@ -16,10 +16,10 @@ osInfo[/etc/SuSE-release]=zypp
 osInfo[/etc/debian_version]=apt-get
 osInfo[/etc/alpine-release]=apk
 
-for f in ${(k)osInfo}
+for f in ${!osInfo[@]}
 do
-    if [[ -f $f ]]; then
-        echo "Package manager: ${osInfo[$f]}"
+    if [[ -f $f ]];then
+        echo Package manager: ${osInfo[$f]}
     fi
 done
 
@@ -46,7 +46,7 @@ echo This is the exported key, copy it and put it in GitHub/Gitea/whatever
 echo Gitea URL: ${GITEA_URL}/user/settings/keys
 echo GitHub URL: https://github.com/settings/gpg/new
 read -p "Press enter when you're done" < /dev/tty
-
+exit
 #############
 # SSH stuff #
 #############
