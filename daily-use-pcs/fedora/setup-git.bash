@@ -23,7 +23,7 @@ do
     fi
 done
 
-sudo ${osInfo[$f]} install git -y
+sudo ${osInfo[$f]} install pass git -y
 
 # Install git credential manager
 curl -L https://aka.ms/gcm/linux-install-source.sh | sh
