@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# Exit if there's an error
+set -e
 # Modify constants as needed
 GITEA_URL="https://git.askiiart.net"
 REAL_NAME="askiiart"

@@ -1,3 +1,6 @@
+#!/bin/bash
+# Exit if there's an error
+set -e
 declare -A osInfo;
 osInfo[/etc/redhat-release]=yum
 osInfo[/etc/arch-release]=pacman
