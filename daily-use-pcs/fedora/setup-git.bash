@@ -47,6 +47,10 @@ echo Gitea URL: ${GITEA_URL}/user/settings/keys
 echo GitHub URL: https://github.com/settings/gpg/new
 read -p "Press enter when you're done" < /dev/tty
 
+echo Doing GCM config stuff...
+git config --global credential.credentialStore gpg
+pass init ${KEY_ID}
+
 #############
 # SSH stuff #
 #############
