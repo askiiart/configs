@@ -26,9 +26,14 @@ done
 
 sudo ${PACKAGE_MANAGER} install pass git -y
 
-# Install git credential manager
-curl -L https://aka.ms/gcm/linux-install-source.sh | sh
-git-credential-manager configure
+# Check if GCM is installed
+if [ -f "${HOME}/.git-credentials" ]; then
+    echo "Git Credential Manager already installed, skipping..."
+else
+    # Install git credential manager
+    curl -L https://aka.ms/gcm/linux-install-source.sh | sh
+    git-credential-manager configure
+fi
 
 ############################################
 # Do GPG key stuff for commit verification #
