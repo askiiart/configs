@@ -12,10 +12,10 @@ osInfo[/etc/alpine-release]=apk
 for f in ${!osInfo[@]}
 do
     if [[ -f $f ]];then
-        echo Package manager: ${osInfo[$f]}
+        PACKAGE_MANAGER=${osInfo[$f]}
     fi
 done
 
-sudo ${osInfo[$f]} install zsh -y
+sudo ${PACKAGE_MANAGER} install zsh -y
 
 cp -r zsh-files/* ~/

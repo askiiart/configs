@@ -20,11 +20,11 @@ osInfo[/etc/alpine-release]=apk
 for f in ${!osInfo[@]}
 do
     if [[ -f $f ]];then
-        echo Package manager: ${osInfo[$f]}
+        PACKAGE_MANAGER=${osInfo[$f]}
     fi
 done
 
-sudo ${osInfo[$f]} install pass git -y
+sudo ${PACKAGE_MANAGER} install pass git -y
 
 # Install git credential manager
 curl -L https://aka.ms/gcm/linux-install-source.sh | sh
