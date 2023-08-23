@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Exit if there's an error
 set -e
 # Modify constants as needed
