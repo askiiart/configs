@@ -1,5 +1,5 @@
-#!/bin/bash
-command_exists() { type "$1" &> /dev/null; }
+#!/usr/bin/env bash
+type "$1" &> /dev/null; }
 
 if command_exists "apt-get"; then
     PM="apt-get"

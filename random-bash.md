@@ -49,9 +49,18 @@ echo "Package manager: ${PM}"
 This exits with and error message if it's run as root.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 if [ $(whoami) != "root" ]; then
     >&2 echo Rerun as non-root user
     exit 1
 fi
+```
+
+## Output to stderr
+
+```bash
+#!/usr/bin/env bash
+# Put `>&2` at beginning or end of line to output to stderr
+>&2 echo "This goes to stderr"
+echo "This goes to stdout"
 ```
