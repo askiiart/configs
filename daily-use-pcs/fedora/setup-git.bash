@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Exit if there's an error
 set -e
 # Modify constants as needed
@@ -8,6 +8,24 @@ EMAIL="dev@askiiart.net"
 
 # Note: This waits until enter is pressed
 # read -p "Press Enter to continue" < /dev/tty
+
+command_exists() { type "$1" &> /dev/null; }
+
+if command_exists "apt-get"; then
+    PM="apt-get"
+elif command_exists "yum"; then
+    PM="yum"
+elif command_exists "pacman"; then
+    PM="pacman"
+elif command_exists "zypp"; then
+    PM="zypp"
+elif command_exists "emerge"; then
+    PM="emerge"
+elif command_exists "apk"; then
+    PM="apk"
+else
+    echo "Unsupported: unknown package manager"
+fi
 
 declare -A osInfo;
 osInfo[/etc/redhat-release]=yum
@@ -23,6 +41,7 @@ do
         PACKAGE_MANAGER=${osInfo[$f]}
     fi
 done
+
 
 sudo ${PACKAGE_MANAGER} install pass git -y
 
