@@ -27,23 +27,7 @@ else
     echo "Unsupported: unknown package manager"
 fi
 
-declare -A osInfo;
-osInfo[/etc/redhat-release]=yum
-osInfo[/etc/arch-release]=pacman
-osInfo[/etc/gentoo-release]=emerge
-osInfo[/etc/SuSE-release]=zypp
-osInfo[/etc/debian_version]=apt-get
-osInfo[/etc/alpine-release]=apk
-
-for f in ${!osInfo[@]}
-do
-    if [[ -f $f ]];then
-        PACKAGE_MANAGER=${osInfo[$f]}
-    fi
-done
-
-
-sudo ${PACKAGE_MANAGER} install pass git -y
+sudo ${PM} install pass git -y
 
 # Check if GCM is installed
 if [ -f "${HOME}/.git-credentials" ]; then
@@ -95,7 +79,7 @@ echo GitHub URL: https://github.com/settings/ssh/new
 echo Fixing permissions, removing temp files...
 sudo chown -R $(whoami) /home/$(whoami)/.gnupg
 sudo chgrp -R $(whoami) /home/$(whoami)/.gnupg
-sudo chmod -R 700 /home/$(whoami)/.gnupg
+sudo chmod -R 600 /home/$(whoami)/.gnupg
 rm dotnet-install.sh
 
 read -p "Done. Now verify your SSH and GPG keys in Git*" < /dev/tty
