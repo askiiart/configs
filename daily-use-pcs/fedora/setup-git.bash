@@ -9,25 +9,25 @@ EMAIL="dev@askiiart.net"
 # Note: This waits until enter is pressed
 # read -p "Press Enter to continue" < /dev/tty
 
-command_exists() { type "$1" &> /dev/null; }
+command_exists() { type "$1" &>/dev/null; }
 
 if command_exists "apt-get"; then
-    PM="apt-get"
+    apt-get install pass git -y
 elif command_exists "yum"; then
-    PM="yum"
+    yum install pass git -y
 elif command_exists "pacman"; then
-    PM="pacman"
+    pacman -S git --noconfirm
+    pacman -S pass --noconfirm
 elif command_exists "zypp"; then
-    PM="zypp"
+    zypper install pass git -y
 elif command_exists "emerge"; then
-    PM="emerge"
+    echo Not yet supported, exiting...
 elif command_exists "apk"; then
-    PM="apk"
+    apk add pass
+    apk add git
 else
     echo "Unsupported: unknown package manager"
 fi
-
-sudo ${PM} install pass git -y
 
 # Check if GCM is installed
 if [ -f "${HOME}/.git-credentials" ]; then
@@ -54,7 +54,7 @@ gpg --armor --export $KEY_ID
 echo This is the exported key, copy it and put it in GitHub/Gitea/whatever
 echo Gitea URL: ${GITEA_URL}/user/settings/keys
 echo GitHub URL: https://github.com/settings/gpg/new
-read -p "Press enter when you're done" < /dev/tty
+read -p "Press enter when you're done" </dev/tty
 
 echo Doing GCM config stuff...
 git config --global credential.credentialStore gpg
@@ -82,4 +82,4 @@ sudo chgrp -R $(whoami) /home/$(whoami)/.gnupg
 sudo chmod -R 600 /home/$(whoami)/.gnupg
 rm dotnet-install.sh
 
-read -p "Done. Now verify your SSH and GPG keys in Git*" < /dev/tty
+read -p "Done. Now verify your SSH and GPG keys in Git*" </dev/tty

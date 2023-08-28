@@ -7,7 +7,7 @@ if [ $(whoami) != "root" ]; then
     exit 1
 fi
 exit 0
-command_exists() { type "$1" &> /dev/null; }
+command_exists() { type "$1" &>/dev/null; }
 
 if command_exists "apt-get"; then
     $SUDO apt-get install zsh -y
@@ -22,9 +22,9 @@ elif command_exists "emerge"; then
     $SUDO emerge --ask app-shells/zsh-completions
     $SUDO emerge --ask app-shells/gentoo-zsh-completions
 elif command_exists "apk"; then
-    $SUDO apk add zsh -y;
+    $SUDO apk add zsh -y
 else
-    >&2 echo "Unsupported: unknown package manager"
+    echo >&2 "Unsupported: unknown package manager"
     exit 1
 fi
 
