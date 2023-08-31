@@ -4,9 +4,11 @@ set -e
 
 if [ $(whoami) != "root" ]; then
     $SUDO = "sudo"
+else
+    echo "Run as a normal user, not root"
     exit 1
 fi
-exit 0
+
 command_exists() { type "$1" &>/dev/null; }
 
 if command_exists "apt-get"; then
@@ -28,4 +30,4 @@ else
     exit 1
 fi
 
-cp -r zsh-files/* ~/
+cp -r zsh-files/.* ~/
