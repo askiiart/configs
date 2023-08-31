@@ -3,7 +3,7 @@
 set -e
 
 if [ $(whoami) != "root" ]; then
-    $SUDO = "sudo"
+    SUDO="sudo"
 else
     echo "Run as a normal user, not root"
     exit 1
