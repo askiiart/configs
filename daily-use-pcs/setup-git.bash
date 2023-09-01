@@ -93,9 +93,15 @@ else
     echo Gitea URL: ${GITEA_URL}/user/settings/keys
     echo GitHub URL: https://github.com/settings/ssh/new
 fi
-echo Fixing permissions
-sudo chown -R $(whoami) /home/$(whoami)/.gnupg
-sudo chgrp -R $(whoami) /home/$(whoami)/.gnupg
-sudo chmod -R 600 /home/$(whoami)/.gnupg
+
+# From https://superuser.com/a/954639
+# Archived at https://web.archive.org/web/20230606153856/https://superuser.com/a/954639
+echo Fixing .gnupg/ permissions
+# Set ownership to your own user and primary group
+chown -R "$USER:$(id -gn)" ~/.gnupg
+# Set permissions to read, write, execute for only yourself, no others
+chmod 700 ~/.gnupg
+# Set permissions to read, write for only yourself, no others
+chmod 600 ~/.gnupg/*
 
 read -p "Done. Now verify your SSH and GPG keys in Git*" </dev/tty
