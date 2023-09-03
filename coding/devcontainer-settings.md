@@ -31,7 +31,7 @@
         "VisualStudioExptTeam.intellicode-api-usage-examples",
         "VisualStudioExptTeam.vscodeintellicode",
         "wayou.vscode-todo-highlight",
-        "yzhang.markdown-all-in-one",
+        "yzhang.markdown-all-in-one"
       ]
     }
   },
@@ -72,5 +72,19 @@ Extensions:
 
 ```json
         "rust-lang.rust-analyzer",
-        "serayuzgur.crates"
+        "serayuzgur.crates",
 ```
+## Python
+
+Extensions:
+
+```json
+        "ms-python.python",
+        "ms-python.black-formatter",
+```
+
+Image: 
+  
+  ```json
+  "image": "mcr.microsoft.com/devcontainers/python:3",
+  ```
