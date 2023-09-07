@@ -26,7 +26,7 @@ elif command_exists "emerge"; then
 elif command_exists "apk"; then
     sudo apk add zsh -y
 else
-    echo >&2 "Unsupported: unknown package manager"
+    echo >&2 "Unsupported: unknown package manager and distro"
     exit 1
 fi
 
