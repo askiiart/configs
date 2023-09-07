@@ -30,4 +30,8 @@ else
     exit 1
 fi
 
-cp -r zsh-files/.* ~/
+cp -r zsh-files/.oh-my-zsh ~/
+cp -r zsh-files/.zkbd ~/
+cp zsh-files/.zshrc ~/
+
+chsh -s $(which zsh)
