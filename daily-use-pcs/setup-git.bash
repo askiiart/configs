@@ -31,7 +31,7 @@ elif command_exists "apk"; then
     sudo apk add pass
     sudo apk add git
 else
-    echo "Unsupported: unknown package manager"
+    echo "Unsupported: unknown package manager and distro"
 fi
 
 # Check if GCM is installed

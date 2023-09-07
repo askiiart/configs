@@ -37,7 +37,7 @@ elif command_exists "emerge"; then
 elif command_exists "apk"; then
     PM="apk"
 else
-    >&2 echo "Unsupported: unknown package manager"
+    >&2 echo "Unsupported: unknown package manager and distro"
     exit 1
 fi
 

@@ -25,6 +25,6 @@ elif command_exists "apk"; then
     sudo rc-update add libvirtd
     sudo rc-service libvirtd start
 else
-    echo "Unsupported: unknown package manager"
+    echo "Unsupported: unknown package manager and distro"
 fi
 
