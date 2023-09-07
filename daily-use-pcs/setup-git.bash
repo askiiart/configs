@@ -66,12 +66,16 @@ else
     echo GitHub URL: https://github.com/settings/gpg/new
     read -p "Press enter when you're done" </dev/tty
     pass init ${KEY_ID}
+else
+    gpg --list-keys
+    read -p "Enter the long ID of the key to be used for git:" KEY_ID
 fi
 
 echo Doing git config stuff...
 git config --global credential.credentialStore gpg
 git config --global user.name "${NAME}"
 git config --global user.email "${EMAIL}"
+git config --global user.signingkey ${KEY_ID}
 
 #############
 # SSH stuff #
