@@ -9,9 +9,7 @@ EMAIL="dev@askiiart.net"
 # Note: This waits until enter is pressed
 # read -p "Press Enter to continue" < /dev/tty
 
-if [ $(whoami) != "root" ]; then
-    SUDO="sudo"
-else
+if [ $(whoami) == "root" ]; then
     echo "Run as a normal user, not root"
     exit 1
 fi
@@ -19,19 +17,19 @@ fi
 command_exists() { type "$1" &>/dev/null; }
 
 if command_exists "apt-get"; then
-    $SUDO apt-get install pass git -y
+    sudo apt-get install pass git -y
 elif command_exists "yum"; then
-    $SUDO yum install pass git -y
+    sudo yum install pass git -y
 elif command_exists "pacman"; then
-    $SUDO pacman -S git --noconfirm
-    $SUDO pacman -S pass --noconfirm
+    sudo pacman -S git --noconfirm
+    sudo pacman -S pass --noconfirm
 elif command_exists "zypp"; then
-    $SUDO zypper install pass git -y
+    sudo zypper install pass git -y
 elif command_exists "emerge"; then
-    $SUDO echo Not yet supported, exiting...
+    sudo echo Not yet supported, exiting...
 elif command_exists "apk"; then
-    $SUDO apk add pass
-    $SUDO apk add git
+    sudo apk add pass
+    sudo apk add git
 else
     echo "Unsupported: unknown package manager"
 fi

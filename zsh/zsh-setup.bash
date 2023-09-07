@@ -12,19 +12,19 @@ fi
 command_exists() { type "$1" &>/dev/null; }
 
 if command_exists "apt-get"; then
-    $SUDO apt-get install zsh -y
+    sudo apt-get install zsh -y
 elif command_exists "yum"; then
-    $SUDO apt-get install zsh -y
+    sudo apt-get install zsh -y
 elif command_exists "pacman"; then
-    $SUDO pacman -S zsh --noconfirm --needed
+    sudo pacman -S zsh --noconfirm --needed
 elif command_exists "zypper"; then
-    $SUDO zypper install zsh -y
+    sudo zypper install zsh -y
 elif command_exists "emerge"; then
-    $SUDO emerge --ask app-shells/zsh
-    $SUDO emerge --ask app-shells/zsh-completions
-    $SUDO emerge --ask app-shells/gentoo-zsh-completions
+    sudo emerge app-shells/zsh
+    sudo emerge app-shells/zsh-completions
+    sudo emerge app-shells/gentoo-zsh-completions
 elif command_exists "apk"; then
-    $SUDO apk add zsh -y
+    sudo apk add zsh -y
 else
     echo >&2 "Unsupported: unknown package manager"
     exit 1
