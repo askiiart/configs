@@ -65,7 +65,6 @@ else
     echo Gitea URL: ${GITEA_URL}/user/settings/keys
     echo GitHub URL: https://github.com/settings/gpg/new
     read -p "Press enter when you're done" </dev/tty
-    pass init ${KEY_ID}
 else
     gpg --list-keys
     read -p "Enter the long ID of the key to be used for git:" KEY_ID
@@ -76,7 +75,8 @@ git config --global credential.credentialStore gpg
 git config --global user.name "${NAME}"
 git config --global user.email "${EMAIL}"
 git config --global user.signingkey ${KEY_ID}
-git config commit.gpgsign true
+git config --global commit.gpgsign true
+pass init ${KEY_ID}
 
 #############
 # SSH stuff #
