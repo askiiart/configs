@@ -106,5 +106,7 @@ chown -R "$USER:$(id -gn)" ~/.gnupg
 chmod 700 ~/.gnupg
 # Set permissions to read, write for only yourself, no others
 chmod 600 ~/.gnupg/*
+# Fixes dirmngr stuff
+sudo chmod 700 $(ls -d $HOME/.gnupg/*/)
 
 read -p "Done. Now verify your SSH and GPG keys in Git*" </dev/tty

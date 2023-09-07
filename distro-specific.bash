@@ -12,7 +12,12 @@ if command_exists "apt-get"; then
 elif command_exists "yum"; then
     ;
 elif command_exists "pacman"; then
-    ;
+    WD=$(pwd)
+    pacman -S --needed git base-devel
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+    cd $WD
 elif command_exists "zypp"; then
     # Untested
     ;
