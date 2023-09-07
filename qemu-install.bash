@@ -12,8 +12,8 @@ if command_exists "apt-get"; then
 elif command_exists "yum"; then
     sudo yum install @Virtualization virt-manager -y
 elif command_exists "pacman"; then
-    sudo pacman -S qemu-full --noconfirm
-    sudo pacman -S virt-manager --noconfirm
+    sudo pacman -S qemu-full --noconfirm --needed
+    sudo pacman -S virt-manager --noconfirm --needed
 elif command_exists "zypp"; then
     # Untested
     sudo zypper install qemu -y

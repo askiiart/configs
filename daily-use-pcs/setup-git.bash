@@ -21,8 +21,8 @@ if command_exists "apt-get"; then
 elif command_exists "yum"; then
     sudo yum install pass git -y
 elif command_exists "pacman"; then
-    sudo pacman -S git --noconfirm
-    sudo pacman -S pass --noconfirm
+    sudo pacman -S git --noconfirm --needed
+    sudo pacman -S pass --noconfirm --needed
 elif command_exists "zypp"; then
     sudo zypper install pass git -y
 elif command_exists "emerge"; then
