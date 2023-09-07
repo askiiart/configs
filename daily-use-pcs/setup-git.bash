@@ -76,6 +76,7 @@ git config --global credential.credentialStore gpg
 git config --global user.name "${NAME}"
 git config --global user.email "${EMAIL}"
 git config --global user.signingkey ${KEY_ID}
+git config commit.gpgsign true
 
 #############
 # SSH stuff #
