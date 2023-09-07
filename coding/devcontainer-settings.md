@@ -85,6 +85,6 @@ Extensions:
 
 Image: 
   
-  ```json
+```json
   "image": "mcr.microsoft.com/devcontainers/python:3",
-  ```
+```
