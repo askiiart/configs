@@ -14,7 +14,7 @@ command_exists() { type "$1" &>/dev/null; }
 if command_exists "apt-get"; then
     sudo apt-get install zsh -y
 elif command_exists "yum"; then
-    sudo apt-get install zsh -y
+    sudo yum install zsh -y
 elif command_exists "pacman"; then
     sudo pacman -S zsh --noconfirm --needed
 elif command_exists "zypper"; then

@@ -49,6 +49,8 @@ fi
 ############################################
 if [ -d "${HOME}/.gnupg/" ]; then
     echo "GPG key(s) already exist, skipping..."
+    gpg --list-keys
+    read -p "Enter the long ID of the key to be used for git:" KEY_ID
 else
 # Create GPG key
     echo "> $ gpg --full-generate-key"
@@ -65,9 +67,6 @@ else
     echo Gitea URL: ${GITEA_URL}/user/settings/keys
     echo GitHub URL: https://github.com/settings/gpg/new
     read -p "Press enter when you're done" </dev/tty
-else
-    gpg --list-keys
-    read -p "Enter the long ID of the key to be used for git:" KEY_ID
 fi
 
 echo Doing git config stuff...
