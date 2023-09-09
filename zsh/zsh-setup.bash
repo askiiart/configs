@@ -14,7 +14,7 @@ command_exists() { type "$1" &>/dev/null; }
 if command_exists "apt-get"; then
     sudo apt-get install zsh -y
 elif command_exists "yum"; then
-    sudo yum install zsh -y
+    sudo yum install zsh util-linux-user -y
 elif command_exists "pacman"; then
     sudo pacman -S zsh --noconfirm --needed
 elif command_exists "zypper"; then
@@ -30,6 +30,7 @@ else
     exit 1
 fi
 
+git submodule update --init --recursive
 cp -r zsh-files/.oh-my-zsh ~/
 cp -r zsh-files/.zkbd ~/
 cp zsh-files/.zshrc ~/
