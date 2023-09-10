@@ -1,6 +1,13 @@
 #!/usr/bin/env sh
-chmod 700 ./daily-use-pcs/setup-git.bash
-./daily-use-pcs/setup-git.bash
+chmod 700 ./distro-specific.bash
+./distro-specific.bash
 
-chmod 700 ./install-stuff/*.bash
-./install-stuff/*.bash
+cd ./daily-use-pcs
+chmod 700 ./setup-git.bash
+./setup-git.bash
+cd ..
+
+cd install-stuff/
+chmod 700 ./*.bash
+./*.bash
+cd ..
