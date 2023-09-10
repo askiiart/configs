@@ -38,10 +38,17 @@ fi
 if [ -d "${HOME}/git-credential-manager" ]; then
     echo "Git Credential Manager already installed, skipping..."
 else
-    # Install git credential manager
-    curl -L https://aka.ms/gcm/linux-install-source.sh | sh
-    git-credential-manager configure
-    rm dotnet-install.sh
+    if command_exists "apt-get"; then
+        curl $(curl -s https://api.github.com/repos/git-ecosystem/git-credential-manager/releases/latest | grep "browser_download_url.*gcm-linux_amd64.*.deb" | cut -d : -f 2,3 | tr -d \") -LO
+        chmod 777 ./gcm-linux_amd64.*.deb
+        sudo apt-get install ./gcm-linux_amd64.*.deb -y
+        rm -f ./gcm-linux_amd64.*.deb
+    else
+        # Install git credential manager
+        curl -L https://aka.ms/gcm/linux-install-source.sh | sh
+        git-credential-manager configure
+        rm dotnet-install.sh
+    fi
 fi
 
 ############################################

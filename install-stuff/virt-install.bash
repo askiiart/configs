@@ -27,4 +27,3 @@ elif command_exists "apk"; then
 else
     echo "Unsupported: unknown package manager and distro"
 fi
-
