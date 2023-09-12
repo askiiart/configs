@@ -3,8 +3,6 @@
 set -e
 # Modify constants as needed
 GITEA_URL="https://git.askiiart.net"
-NAME="askiiart"
-EMAIL="dev@askiiart.net"
 
 # Note: This waits until enter is pressed
 # read -p "Press Enter to continue" < /dev/tty
@@ -60,20 +58,9 @@ if [ -d "${HOME}/.gnupg/" ]; then
     read -p "Enter the long ID of the key to be used for git:" KEY_ID
 else
 # Create GPG key
-    echo "> $ gpg --full-generate-key"
-    echo
-    echo Use the defaults, then real name "askiiart", email address \"dev@askiiart.net\", and comment \"git key\"\n
-    echo
-    gpg --full-generate-key
+    gpg --batch --gen-key gpg-config.batch
     read -p "Copy the long ID above, then paste it here: " KEY_ID
     echo $KEY_ID
-
-    # Export GPG key
-    gpg --armor --export $KEY_ID
-    echo This is the exported key, copy it and put it in GitHub/Gitea/whatever
-    echo Gitea URL: ${GITEA_URL}/user/settings/keys
-    echo GitHub URL: https://github.com/settings/gpg/new
-    read -p "Press enter when you're done" </dev/tty
 fi
 
 echo Doing git config stuff...
@@ -97,10 +84,6 @@ else
     # -f: file, -N: passphrase, -t: type
     ssh-keygen -f ~/.ssh/id_rsa -N "" -t rsa
     echo
-    cat ~/.ssh/id_rsa.pub
-    echo This is the SSH public key, copy it and put it in GitHub/Gitea/whatever
-    echo Gitea URL: ${GITEA_URL}/user/settings/keys
-    echo GitHub URL: https://github.com/settings/ssh/new
 fi
 
 # From https://superuser.com/a/954639
@@ -116,3 +99,16 @@ chmod 600 ~/.gnupg/*
 sudo chmod 700 $(ls -d $HOME/.gnupg/*/)
 
 read -p "Done. Now verify your SSH and GPG keys in Git*" </dev/tty
+
+# Export GPG key
+gpg --armor --export $KEY_ID
+echo This is the exported key, copy it and put it in GitHub/Gitea/whatever
+echo Gitea URL: ${GITEA_URL}/user/settings/keys
+echo GitHub URL: https://github.com/settings/gpg/new
+read -p "Press enter when you're done" </dev/tty
+
+cat ~/.ssh/id_rsa.pub
+echo This is the SSH public key, copy it and put it in GitHub/Gitea/whatever
+echo Gitea URL: ${GITEA_URL}/user/settings/keys
+echo GitHub URL: https://github.com/settings/ssh/new
+read -p "Press enter when you're done" </dev/tty

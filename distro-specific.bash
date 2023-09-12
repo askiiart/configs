@@ -8,9 +8,10 @@ fi
 command_exists() { type "$1" &>/dev/null; }
 
 if command_exists "apt-get"; then
-    ;
+    sudo apt update
+    sudo apt install curl -y
 elif command_exists "yum"; then
-    ;
+    sudo dnf config-manager --add-repo https://askiiart.net/repos/fedora/x86_64/askiiart.repo
 elif command_exists "pacman"; then
     WD=$(pwd)
     pacman -S --needed git base-devel

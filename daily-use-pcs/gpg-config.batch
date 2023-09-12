@@ -1,0 +1,6 @@
+%echo Generating an example PGP key
+Key-Type: RSA
+Key-Length: 4096
+Name-Real: askiiart
+Name-Email: dev@askiiart.net
+Expire-Date: 0
