@@ -65,8 +65,8 @@ else
 fi
 
 echo Doing git config stuff...
-git config --global user.name "${NAME}"
-git config --global user.email "${EMAIL}"
+git config --global user.name "${GIT_NAME}"
+git config --global user.email "${GIT_EMAIL}"
 git config --global user.signingkey ${KEY_ID}
 git config --global commit.gpgsign true
 git-credential-manager configure
