@@ -21,11 +21,11 @@ elif command_exists "pacman"; then
     cd $WD
 elif command_exists "zypp"; then
     # Untested
-    ;
+    echo "not yet implemented"
 elif command_exists "emerge"; then
-    ;
+    echo "not yet implemented"
 elif command_exists "apk"; then
-    ;
+    echo "not yet implemented"
 else
     echo "Unsupported: unknown package manager and distro"
 fi
