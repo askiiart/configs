@@ -10,12 +10,10 @@ command_exists() { type "$1" &>/dev/null; }
 if command_exists "apt-get"; then
     sudo curl -L https://askiiart.net/repos/debian/dists/bookworm/stable/binary-amd64/askiiart.list -o /etc/apt/sources.list.d/askiiart.list
     sudo apt update --allow-insecure-repositories
-    sudo apt install armcord -y --allow-unauthenticated
+    sudo apt install youtube-music -y --allow-unauthenticated
 elif command_exists "yum"; then
     sudo dnf config-manager --add-repo https://askiiart.net/repos/fedora/x86_64/askiiart.repo
-    sudo dnf install ArmCord -y
-elif command_exists "pacman"; then
-    yay -S armcord-bin
+    sudo dnf install youtube-music -y
 else
-    echo "IDK, check ArmCord's GitHub repo: https://github.com/ArmCord/ArmCord"
+    echo "IDK, check the repo: https://github.com/th-ch/youtube-music"
 fi
