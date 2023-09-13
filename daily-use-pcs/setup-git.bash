@@ -3,6 +3,8 @@
 set -e
 # Modify constants as needed
 GITEA_URL="https://git.askiiart.net"
+GIT_NAME="askiiart"
+GIT_EMAIL="dev@askiiart.net"
 
 # Note: This waits until enter is pressed
 # read -p "Press Enter to continue" < /dev/tty
@@ -44,7 +46,6 @@ else
     else
         # Install git credential manager
         curl -L https://aka.ms/gcm/linux-install-source.sh | sh
-        git-credential-manager configure
         rm dotnet-install.sh
     fi
 fi
@@ -64,11 +65,11 @@ else
 fi
 
 echo Doing git config stuff...
-git config --global credential.credentialStore gpg
 git config --global user.name "${NAME}"
 git config --global user.email "${EMAIL}"
 git config --global user.signingkey ${KEY_ID}
 git config --global commit.gpgsign true
+git-credential-manager configure
 pass init ${KEY_ID}
 
 #############
