@@ -14,7 +14,7 @@ elif command_exists "yum"; then
     sudo dnf install steam -y
 elif command_exists "pacman"; then
     echo "[multilib]\nInclude = /etc/pacman.d/mirrorlist"
-    read -p "Enable the multilib repo in /etc/pacman.conf - look above`
+    read -p "Enable the multilib repo in /etc/pacman.conf - look above"
     $EDITOR /etc/pacman.conf
 else
     echo "IDK"

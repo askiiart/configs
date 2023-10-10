@@ -5,6 +5,7 @@ set -e
 GITEA_URL="https://git.askiiart.net"
 GIT_NAME="askiiart"
 GIT_EMAIL="dev@askiiart.net"
+KEY_ID="02EFA1CE3C3E4AAD7A863AB8ED24985CA884CD61"
 
 # Note: This waits until enter is pressed
 # read -p "Press Enter to continue" < /dev/tty
@@ -53,23 +54,17 @@ fi
 ############################################
 # Do GPG key stuff for commit verification #
 ############################################
-if [ -d "${HOME}/.gnupg/" ]; then
-    echo "GPG key(s) already exist, skipping..."
-    gpg --list-keys
-    read -p "Enter the long ID of the key to be used for git:" KEY_ID
-else
-# Create GPG key
-    gpg --batch --gen-key gpg-config.batch
-    read -p "Copy the long ID above, then paste it here: " KEY_ID
-    echo $KEY_ID
-fi
-
-echo Doing git config stuff...
 git config --global user.name "${GIT_NAME}"
 git config --global user.email "${GIT_EMAIL}"
-git config --global user.signingkey ${KEY_ID}
-git config --global commit.gpgsign true
 git-credential-manager configure
+git config --global commit.gpgsign true
+git config --global credential.credentialStore gpg
+
+echo "GPG key ID: ${KEY_ID}"
+echo "Go to https://github.com/drduh/YubiKey-Guide to set up git with GPG"
+read -p "Mirrored at https://git.askiiart.net/mirrors/YubiKey-Guide"
+
+git config --global user.signingkey ${KEY_ID}
 pass init ${KEY_ID}
 
 #############

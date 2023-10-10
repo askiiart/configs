@@ -12,6 +12,7 @@ if command_exists "apt-get"; then
     sudo apt install curl -y
 elif command_exists "yum"; then
     sudo dnf config-manager --add-repo https://askiiart.net/repos/fedora/x86_64/askiiart.repo
+    sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 elif command_exists "pacman"; then
     WD=$(pwd)
     pacman -S --needed git base-devel
