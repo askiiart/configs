@@ -15,7 +15,7 @@ elif command_exists "yum"; then
     sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 elif command_exists "pacman"; then
     WD=$(pwd)
-    pacman -S --needed git base-devel
+    sudo pacman -S --noconfirm --needed git base-devel
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
