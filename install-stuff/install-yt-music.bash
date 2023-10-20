@@ -14,6 +14,8 @@ if command_exists "apt-get"; then
 elif command_exists "yum"; then
     sudo dnf config-manager --add-repo https://askiiart.net/repos/fedora/x86_64/askiiart.repo
     sudo dnf install youtube-music -y
+elif command_exists "yay"; then
+    yay -S youtube-music-bin --noconfirm --needed
 else
     echo "IDK, check the repo: https://github.com/th-ch/youtube-music"
 fi
