@@ -18,11 +18,7 @@ elif command_exists "yay"; then
     read -p "Enable the multilib repo in /etc/pacman.conf - look above"
     sudo $EDITOR /etc/pacman.conf
     yay -S steam --noconfirm --needed
-    yay -S appimagelauncher --noconfirm --needed
-    mkdir $HOME/Applications
-    curl $(curl -s https://api.github.com/repos/DavidoTek/ProtonUp-Qt/releases/latest | grep "browser_download_url.*ProtonUp-Qt-.*-x86_64.AppImage" | cut -d : -f 2,3 | tr -d \") -LO
-    mv ProtonUp*.AppImage $HOME/Applications/
-    yay -S dosbox inotify-tools timidity scummvm xdotool xwinfo yad --noconfirm --needed
+    yay -S protonup-qt-bin dosbox inotify-tools timidity scummvm xdotool xwinfo yad --noconfirm --needed
 else
     echo "IDK"
 fi
