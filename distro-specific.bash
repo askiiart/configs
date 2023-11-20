@@ -20,6 +20,7 @@ elif command_exists "pacman"; then
     cd yay
     makepkg -si
     cd $WD
+    yay -S noto-fonts-emoji --noconfirm --needed
 elif command_exists "zypp"; then
     # Untested
     echo "not yet implemented"
