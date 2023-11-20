@@ -14,8 +14,8 @@ if command_exists "apt-get"; then
 elif command_exists "yum"; then
     sudo dnf install steam -y
 elif command_exists "yay"; then
-    printf '[multilib]\nInclude = /etc/pacman.d/mirrorlist\n'
-    read -p "Enable the multilib repo in /etc/pacman.conf - look above"
+    #printf '[multilib]\nInclude = /etc/pacman.d/mirrorlist\n'
+    #read -p "Enable the multilib repo in /etc/pacman.conf - look above"
     sudo $EDITOR /etc/pacman.conf
     yay -S steam --noconfirm --needed
     yay -S protonup-qt-bin dosbox inotify-tools timidity scummvm xdotool xwinfo yad --noconfirm --needed

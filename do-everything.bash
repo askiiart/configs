@@ -13,6 +13,7 @@ chmod 700 ./*.bash
 ./install-vesktop.bash
 ./install-fish.bash
 ./install-librewolf.bash
+./install-misc.sh
 ./install-qemu-libvirt.bash
 ./install-steam.bash
 ./install-vs-code.bash
