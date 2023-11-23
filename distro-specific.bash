@@ -23,10 +23,7 @@ elif command_exists "pacman"; then
     rm -rf yay
     yay -S noto-fonts-emoji --noconfirm --needed
     sudo mkdir /usr/share/fonts/meslolgs
-    sudo curl -L https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_regular.ttf?raw=true -o /usr/share/fonts/meslolgs/mesloLGS_NF_regular.ttf
-    sudo curl -L https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_bold.ttf?raw=true -o /usr/share/fonts/meslolgs/mesloLGS_NF_bold.ttf
-    sudo curl -L https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_italic.ttf?raw=true -o /usr/share/fonts/meslolgs/mesloLGS_NF_italic.ttf
-    sudo curl -L https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_bold_italic.ttf?raw=true -o /usr/share/fonts/meslolgs/mesloLGS_NF_bold_italic.ttf
+    yay -S ttf-meslo-nerd-font-powerlevel10k --noconfirm --needed
 elif command_exists "zypp"; then
     echo "not yet implemented"
 elif command_exists "emerge"; then

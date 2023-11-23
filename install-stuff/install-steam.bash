@@ -16,8 +16,8 @@ elif command_exists "yum"; then
 elif command_exists "yay"; then
     #printf '[multilib]\nInclude = /etc/pacman.d/mirrorlist\n'
     #read -p "Enable the multilib repo in /etc/pacman.conf - look above"
-    sudo $EDITOR /etc/pacman.conf
-    yay -S steam --noconfirm --needed
+    #sudo $EDITOR /etc/pacman.conf
+    yay -S steam
     yay -S protonup-qt-bin dosbox inotify-tools timidity scummvm xdotool xwinfo yad --noconfirm --needed
 else
     echo "IDK"

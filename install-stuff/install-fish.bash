@@ -27,4 +27,4 @@ else
     exit
 fi
 
-chsh -s $(which fish)
+chsh -s $(readlink -f $(which fish))
