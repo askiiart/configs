@@ -16,8 +16,8 @@ if command_exists "apt-get"; then
 elif command_exists "yum"; then
     sudo yum install kitty -y
     echo "Please install SchildiChat, nvim/neovim"
-elif command_exists "pacman"; then
-    sudo pacman -S kitty --noconfirm --neeeded
+elif command_exists "yay"; then
+    yay -S kitty --noconfirm --needed
     yay -S schildichat-desktop-bin --noconfirm --needed
 elif command_exists "zypp"; then
     # Untested
