@@ -11,8 +11,9 @@ if command_exists "apt-get"; then
     curl $(curl -s https://api.github.com/repos/Vencord/Vesktop/releases/latest | grep "VencordDesktop_.*_amd64.deb" | head --lines 1 | cut -d : -f 2,3 | tr -d \") -LO
     sudo apt-get install ./VencordDesktop_*.deb -y
 elif command_exists "yum"; then
-    curl $(curl -s https://api.github.com/repos/Vencord/Vesktop/releases/latest | grep "VencordDesktop-.*.x86_64.rpm" | head --lines 1 | cut -d : -f 2,3 | tr -d \") -LO
-    sudo apt install ./VencordDesktop*.rpm -y
+    curl -LO $(curl -s https://api.github.com/repos/Vencord/Vesktop/releases/latest | grep "browser_download_url.*VencordDesktop-.*.x86_64.rpm" | head --lines 1 | cut -d : -f 2,3 | tr -d \")
+    sudo dnf install ./VencordDesktop*.rpm -y
+    rm ./VencordDesktop*.rpm
 elif command_exists "pacman"; then
     yay -S vencord-desktop-bin --noconfirm --needed
 else

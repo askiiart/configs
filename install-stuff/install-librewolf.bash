@@ -14,7 +14,7 @@ if command_exists "apt-get"; then
     echo "Types: deb\nURIs: https://deb.librewolf.net\nSuites: $distro\nComponents: main\nArchitectures: amd64\nSigned-By: /usr/share/keyrings/librewolf.gpg" | sudo tee /etc/apt/sources.list.d/librewolf.sources
     sudo apt update
     sudo apt install librewolf -y
-elif command_exists "yum"; then
+elif command_exists "dnf"; then
     sudo dnf config-manager --add-repo https://rpm.librewolf.net/librewolf-repo.repo
     sudo dnf install librewolf
 elif command_exists "pacman"; then
