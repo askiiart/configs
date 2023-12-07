@@ -8,7 +8,7 @@ fi
 command_exists() { type "$1" &>/dev/null; }
 
 if command_exists "apt-get"; then
-    curl $(curl -s https://api.github.com/repos/Vencord/Vesktop/releases/latest | grep "VencordDesktop_.*_amd64.deb" | head --lines 1 | cut -d : -f 2,3 | tr -d \") -LO
+    curl -LO $(curl -s https://api.github.com/repos/Vencord/Vesktop/releases/latest | grep "VencordDesktop_.*_amd64.deb" | head --lines 1 | cut -d : -f 2,3 | tr -d \")
     sudo apt-get install ./VencordDesktop_*.deb -y
 elif command_exists "yum"; then
     curl -LO $(curl -s https://api.github.com/repos/Vencord/Vesktop/releases/latest | grep "browser_download_url.*VencordDesktop-.*.x86_64.rpm" | head --lines 1 | cut -d : -f 2,3 | tr -d \")

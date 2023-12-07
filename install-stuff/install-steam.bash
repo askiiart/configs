@@ -13,6 +13,9 @@ if command_exists "apt-get"; then
     sudo dpkg -i steam.deb
 elif command_exists "dnf"; then
     sudo dnf install steam -y
+    sudo dnf install appimagelauncher qt5-qtbase-gui -y
+    mkdir $HOME/Applications
+    curl -L $(curl -s https://api.github.com/repos/DavidoTek/ProtonUp-Qt/releases/latest | grep "browser_download_url.*ProtonUp-Qt-.*-x86_64.AppImage" | head --lines 1 | cut -d : -f 2,3 | tr -d \") -o $HOME/Applications/ProtonUp-Qt.AppImage
 elif command_exists "yay"; then
     #printf '[multilib]\nInclude = /etc/pacman.d/mirrorlist\n'
     #read -p "Enable the multilib repo in /etc/pacman.conf - look above"
