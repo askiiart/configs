@@ -19,7 +19,7 @@ elif command_exists "yum"; then
     sudo dnf install ./schildichat-desktop-*.x86_64.rpm
     sudo rm ./schildichat-desktop-*.x86_64.rpm
 elif command_exists "yay"; then
-    yay -S kitty schildichat-desktop-bin digikam eog man-db neovim --noconfirm --needed
+    yay -S kitty schildichat-desktop-bin digikam eog man-db neovim multimc-bin --noconfirm --needed
 elif command_exists "zypp"; then
     # Untested
     sudo zypper install kitty -y
