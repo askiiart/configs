@@ -17,8 +17,9 @@ if command_exists "apt-get"; then
 elif command_exists "dnf"; then
     sudo dnf config-manager --add-repo https://rpm.librewolf.net/librewolf-repo.repo
     sudo dnf install librewolf
-elif command_exists "pacman"; then
+elif command_exists "yay"; then
     yay -S librewolf-bin
+    yay -R firefox
 elif command_exists "emerge"; then
     # Untested
     sudo eselect repository add librewolf git https://codeberg.org/librewolf/gentoo.git
