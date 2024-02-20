@@ -15,7 +15,7 @@ elif command_exists "yum"; then
     sudo dnf install ./VencordDesktop*.rpm -y
     rm ./VencordDesktop*.rpm
 elif command_exists "pacman"; then
-    yay -S vencord-desktop-bin --noconfirm --needed
+    yay -S vesktop-bin --noconfirm --needed
 else
     echo "IDK, check the repo: https://github.com/Vencord/Vesktop"
 fi
