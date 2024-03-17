@@ -16,11 +16,10 @@ if command_exists "apt-get"; then
     sudo apt install apt-transport-https
     sudo apt update
     sudo apt install code
-elif command_exists "yum"; then
+elif command_exists "dnf"; then
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
     sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-    yum check-update
-    sudo yum install code -y
+    sudo dnf install code -y
 elif command_exists "yay"; then
     yay -S visual-studio-code-bin clang-format-static-bin --noconfirm --needed
 elif command_exists "zypp"; then

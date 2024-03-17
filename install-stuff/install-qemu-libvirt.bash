@@ -11,6 +11,7 @@ if command_exists "apt-get"; then
     sudo apt-get install qemu-system libvirt-daemon-system virt-manager -y
 elif command_exists "yum"; then
     sudo yum install @Virtualization virt-manager -y
+    sudo usermod -aG libvirt $(whoami)
 elif command_exists "pacman"; then
     sudo pacman -S qemu-full --noconfirm --needed
     sudo pacman -S virt-manager --noconfirm --needed

@@ -8,18 +8,20 @@ fi
 
 command_exists() { type "$1" &>/dev/null; }
 
-echo "WARNING: Only Arch and Fedora fully supported"
-
 if command_exists "apt-get"; then
     sudo apt-get install kitty -y
     echo "Please install SchildiChat, nvim/neovim"
-elif command_exists "yum"; then
-    sudo yum install kitty neovim -y
+elif command_exists "dnf"; then
+    sudo dnf install kitty neovim gcc gnome-hexgl drawing make vlc freeglut ncdu gcolor3 rust cargo clippy p7zip mosh krita podman podman-docker podman-compose gajim -y
     curl -LO $(curl -s https://api.github.com/repos/SchildiChat/schildichat-desktop/releases/latest | grep "browser_download_url.*schildichat-desktop-.*.x86_64.rpm" | cut -d : -f 2,3 | tr -d \")
     sudo dnf install ./schildichat-desktop-*.x86_64.rpm
     sudo rm ./schildichat-desktop-*.x86_64.rpm
+
+    # Install Prism Launcher
+    sudo dnf copr enable g3tchoo/prismlauncher
+    sudo dnf install prismlauncher-qt5
 elif command_exists "yay"; then
-    yay -S kitty schildichat-desktop-bin digikam eog man-db neovim multimc-bin --noconfirm --needed
+    yay -S kitty schildichat-desktop-bin digikam eog man-db neovim prismlauncher-qt5-bin --noconfirm --needed
 elif command_exists "zypp"; then
     # Untested
     sudo zypper install kitty -y

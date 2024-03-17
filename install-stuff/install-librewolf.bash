@@ -17,6 +17,7 @@ if command_exists "apt-get"; then
 elif command_exists "dnf"; then
     sudo dnf config-manager --add-repo https://rpm.librewolf.net/librewolf-repo.repo
     sudo dnf install librewolf
+    sudo dnf remove firefox
 elif command_exists "yay"; then
     yay -S librewolf-bin
     yay -R firefox

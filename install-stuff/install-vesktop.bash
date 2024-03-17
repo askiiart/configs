@@ -8,12 +8,12 @@ fi
 command_exists() { type "$1" &>/dev/null; }
 
 if command_exists "apt-get"; then
-    curl -LO $(curl -s https://api.github.com/repos/Vencord/Vesktop/releases/latest | grep "VencordDesktop_.*_amd64.deb" | head --lines 1 | cut -d : -f 2,3 | tr -d \")
-    sudo apt-get install ./VencordDesktop_*.deb -y
+    curl -LO $(curl -s https://api.github.com/repos/Vencord/Vesktop/releases/latest | grep "vesktop_.*_amd64.deb" | head --lines 1 | cut -d : -f 2,3 | tr -d \")
+    sudo apt-get install ./vesktop_*.deb -y
 elif command_exists "yum"; then
-    curl -LO $(curl -s https://api.github.com/repos/Vencord/Vesktop/releases/latest | grep "browser_download_url.*VencordDesktop-.*.x86_64.rpm" | head --lines 1 | cut -d : -f 2,3 | tr -d \")
-    sudo dnf install ./VencordDesktop*.rpm -y
-    rm ./VencordDesktop*.rpm
+    curl -LO $(curl -s https://api.github.com/repos/Vencord/Vesktop/releases/latest | grep "browser_download_url.*vesktop-.*.x86_64.rpm" | head --lines 1 | cut -d : -f 2,3 | tr -d \")
+    sudo dnf install ./vesktop-*.rpm -y
+    rm ./vesktop-*.rpm
 elif command_exists "pacman"; then
     yay -S vesktop-bin --noconfirm --needed
 else
