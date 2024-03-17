@@ -3,4 +3,4 @@
 	url = https://github.com/askiiart/.oh-my-zsh
 [submodule "dotfiles"]
 	path = dotfiles
-	url = https://git.askiiart.net/askiiart/dotfiles
+	url = git@git.askiiart.net:askiiart/dotfiles
