@@ -11,6 +11,7 @@ cd ..
 cd install-stuff/
 chmod 700 ./*.bash
 ./install-vesktop.bash
+./install-claws-mail.bash
 ./install-fish.bash
 ./install-librewolf.bash
 ./install-misc.sh
