@@ -15,6 +15,12 @@ if command_exists "yay"; then
     cd ~
     git clone https://git.askiiart.net/askiiart/gpg-email-helper
     cd -
+elif command_exists "dnf"; then
+    sudo dnf install spamassassin claws-mail claws-mail-plugins-pgp claws-mail-plugins-spamassassin claws-mail-plugins-rssyl
+    sudo systemctl enable --now spamassassin.service
+    cd ~
+    git clone https://git.askiiart.net/askiiart/gpg-email-helper
+    cd -
 else
     echo "IDK"
 fi
