@@ -15,7 +15,12 @@ elif command_exists "dnf"; then
     sudo dnf install steam -y
     sudo dnf install appimagelauncher qt5-qtbase-gui -y
     mkdir $HOME/Applications
-    curl -L $(curl -s https://api.github.com/repos/DavidoTek/ProtonUp-Qt/releases/latest | grep "browser_download_url.*ProtonUp-Qt-.*-x86_64.AppImage" | head --lines 1 | cut -d : -f 2,3 | tr -d \") -o $HOME/Applications/ProtonUp-Qt.AppImage
+    cd $HOME/Applications
+    curl -LO $(curl -s https://api.github.com/repos/DavidoTek/ProtonUp-Qt/releases/latest | grep "browser_download_url.*ProtonUp-Qt-.*-x86_64.AppImage" | head --lines 1 | cut -d : -f 2,3 | tr -d \") -C -
+    cd -  # throws an error but it works?
+    AppImageLauncherSettings &
+    sleep 5
+    kill $(pidof AppImageLauncherSettings)
     sudo dnf install gperftools-libs-2.9.1-6.fc39.i686
 elif command_exists "yay"; then
     #printf '[multilib]\nInclude = /etc/pacman.d/mirrorlist\n'

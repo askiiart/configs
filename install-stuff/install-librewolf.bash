@@ -18,6 +18,20 @@ elif command_exists "dnf"; then
     sudo dnf config-manager --add-repo https://rpm.librewolf.net/librewolf-repo.repo
     sudo dnf install librewolf
     sudo dnf remove firefox
+    mkdir tmp-openh264
+    cd tmp-openh264
+    wget http://ciscobinary.openh264.org/openh264-linux64-v1.1-Firefox33.zip
+    sudo dnf install unzip -y
+    unzip ./*.zip
+    for dir in $(ls -d ~/.librewolf/*/); do
+        mkdir -p ${dir}gmp-gmpopenh264/1.1/
+        cp libgmpopenh264.so ${dir}gmp-gmpopenh264/1.1/
+        cp gmpopenh264.info ${dir}gmp-gmpopenh264/1.1/
+    done
+    cd -
+    rm -rf ./tmp-openh264/
+    echo -e "\nNow open LibreWolf, go to about:config, and set these to true:\n  media.gmp-gmpopenh264.autoupdate\n  media.gmp-gmpopenh264.enabled\n  media.gmp-gmpopenh264.provider.enabled\n  media.peerconnection.video.h264_enabled\n"
+    read -p ""
 elif command_exists "yay"; then
     yay -S librewolf-bin
     yay -R firefox

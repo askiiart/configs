@@ -32,9 +32,3 @@ else
     echo "Unsupported: unknown package manager and distro"
     exit
 fi
-
-sudo mkdir /usr/share/fonts/meslolgs
-sudo curl 'https://raw.githubusercontent.com/IlanCosman/tide/assets/fonts/mesloLGS_NF_regular.ttf' -o '/usr/share/fonts/meslolgs/mesloLGS_NF_regular.ttf'
-sudo curl 'https://raw.githubusercontent.com/IlanCosman/tide/assets/fonts/mesloLGS_NF_bold.ttf?raw=true' -o '/usr/share/fonts/meslolgs/mesloLGS_NF_bold.ttf'
-sudo curl 'https://raw.githubusercontent.com/IlanCosman/tide/assets/fonts/mesloLGS_NF_italic.ttf?raw=true' -o '/usr/share/fonts/meslolgs/mesloLGS_NF_italic.ttf'
-sudo curl 'https://raw.githubusercontent.com/IlanCosman/tide/assets/fonts/mesloLGS_NF_bold_italic.ttf?raw=true' -o '/usr/share/fonts/meslolgs/mesloLGS_NF_bold_italic.ttf'
